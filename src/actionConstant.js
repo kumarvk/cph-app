@@ -1,0 +1,2 @@
+export const LOAD_FLIGHT = 'FETCH_FLIGHT';
+export const LOAD_FLIGHT_SUCCEED = 'FETCH_FLIGHT_SUCCEED';
