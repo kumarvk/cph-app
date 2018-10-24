@@ -1,8 +1,21 @@
-import { LOAD_FLIGHT } from '../actionConstant';
+import { LOAD_FLIGHT, FILTER_FLIGHT, DISMISS_NOTIFICATION } from '../actionConstant';
 
-export function loadFlights(filter) {
+export function loadFlights(data) {
   return {
     type: LOAD_FLIGHT,
-    filter
+    data
+  }
+}
+
+export function filterFlights(data) {
+  return {
+    type: FILTER_FLIGHT,
+    data
+  }
+}
+
+export function dismissNotification() {
+  return {
+    type: DISMISS_NOTIFICATION
   }
 }
