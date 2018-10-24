@@ -1,48 +1,30 @@
 import React from 'react';
-import ReactTable from "react-table";
-import "react-table/react-table.css";
+import { Table } from 'reactstrap';
 
 const FlightComponent = (props) =>
-  <ReactTable
-    data={props.flights}
-    showPagination={false}
-    pageSize={100}
-    defaultPageSize={15}
-    className="-striped -highlight page-layout"
-    filterable
-    columns={[
-      {
-        Header: "Time",
-        accessor: "exact_time",
-        Cell: ({ value }) => props.timeFormat(value),
-        filterMethod: (filter, row) => props.filterTime(filter, row),
-        Filter: ({ filter, onChange }) => props.filterTimeSelect(filter, onChange),
-      },
-      {
-        Header: "Airline",
-        accessor: "airline",
-        filterMethod: (filter, row) => {
-          const id = filter.pivotId || filter.id
-          return row[id] !== undefined ? String(row[id].toLowerCase()).startsWith(filter.value.toLowerCase()) : true
-        }
-      },
-      {
-        Header: "Destination",
-        accessor: "destination",
-        filterMethod: (filter, row) => {
-          const id = filter.pivotId || filter.id
-          return row[id] !== undefined ? String(row[id].toLowerCase()).startsWith(filter.value.toLowerCase()) : true
-        }
-      },
-      {
-        Header: "Status",
-        accessor: "status",
-        filterMethod: (filter, row) => {
-          const id = filter.pivotId || filter.id
-          return (row[id] !== undefined) && (row[id] !== null) ? String(row[id].toLowerCase()).startsWith(filter.value.toLowerCase()) : false
-        }
-      }
-    ]}
-  />
+  <div className="table-responsive set-td-width">
+  <Table striped>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Expected</th>
+        <th>Airline</th>
+        <th>Destination</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {props.flights && props.flights.map(flight => (
+        <tr key={flight.id}>
+          <td>{props.timeFormat(flight.exact_time)}</td>
+          <td>{props.timeFormat(flight.expected_time)}</td>
+          <td>{flight.airline}</td>
+          <td>{flight.destination}</td>
+          <td>{flight.status}</td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+  </div>
 
 export default FlightComponent;

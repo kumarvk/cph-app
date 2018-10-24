@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-left: 60px;
 }
 
 .App-logo {
@@ -31,11 +32,54 @@ header {
   color: #61dafb;
 }
 
+.nav-container {
+  height: -webkit-fill-available;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 10px;
+}
+
+.sidebar-left {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1006;
+  min-width: 64px;
+  background: #db3d44;
+  transition: min-width 0.15s;
+}
+
+.set-td-width tbody tr td {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width:767px) {
+  .page-link {
+    width: 56px;
+    font-size: 11px;
+    padding: 5px 5px;
+  }
+  ul.pagination li {
+    display: inline-block;
+  }
+  .pagination {
+    display: block;
   }
 }
