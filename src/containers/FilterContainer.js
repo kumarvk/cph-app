@@ -92,7 +92,6 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => {
   return {
-    flights: state.flightDetails.flights,
     type: state.flightDetails.type
   }
 }

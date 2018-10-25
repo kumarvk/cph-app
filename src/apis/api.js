@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 export const loadFlights = async (action) => {
-  const params = {filter: action.data.type, page: action.data.page}
+  const params = {page: action.data.page}
   const response = await api.get(`/flights/${action.data.type}`, {params});
   return response;
 }
