@@ -28,7 +28,6 @@ export default function(state = initialState, action) {
       }
     case LOAD_FLIGHT_SUCCEED:
     case FILTER_FLIGHT_SUCCEED:
-    console.log(action.data.total_count);
       return {
         ...state,
         error: false,

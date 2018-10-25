@@ -61,6 +61,11 @@ header {
   white-space: nowrap;
 }
 
+.select-height {
+  height: 250px;
+  overflow: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
