@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import reducers from './reducers'
+import FlightContainer from './FlightContainer';
+import reducers from '../reducers'
 import { createStore } from 'redux'
-import App from './App';
 
-it('renders without crashing', () => {
+it('renders flight container without crashing', () => {
   const store = createStore(reducers)
   const div = document.createElement('div');
-  ReactDOM.render(<Provider store={store}><App /></Provider>, div);
-  ReactDOM.unmountComponentAtNode(div);
+  ReactDOM.render(<Provider store={store}><FlightContainer /></Provider>, div);
 });
