@@ -10,31 +10,32 @@ class NavContainer extends Component {
   }
 
   render() {
-    return(
+    const {type} = this.props;
+    return( type &&
       <div className="sidebar-left">
-      <SideNav
-        onSelect={this.toggle}
-      >
-      <SideNav.Toggle />
-        <SideNav.Nav defaultSelected={this.props.type}>
-          <NavItem eventKey="departures">
-            <NavIcon>
-              <i className="fa fa-plane" style={{ fontSize: '1.75em' }} />
-            </NavIcon>
-            <NavText>
-              Departures
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="arrivals">
-            <NavIcon>
-              <i className="fa fa-fighter-jet" style={{ fontSize: '1.75em' }} />
-            </NavIcon>
-            <NavText>
-              Arrivals
-            </NavText>
-          </NavItem>
-        </SideNav.Nav>
-      </SideNav>
+        <SideNav
+          onSelect={this.toggle}
+        >
+        <SideNav.Toggle />
+          <SideNav.Nav defaultSelected={type}>
+            <NavItem eventKey="departures">
+              <NavIcon>
+                <i className="fa fa-plane" style={{ fontSize: '1.75em' }} />
+              </NavIcon>
+              <NavText>
+                Departures
+              </NavText>
+            </NavItem>
+            <NavItem eventKey="arrivals">
+              <NavIcon>
+                <i className="fa fa-fighter-jet" style={{ fontSize: '1.75em' }} />
+              </NavIcon>
+              <NavText>
+                Arrivals
+              </NavText>
+            </NavItem>
+          </SideNav.Nav>
+        </SideNav>
       </div>
     )
   }
